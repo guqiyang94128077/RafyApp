@@ -31,7 +31,18 @@ namespace Rafy.Sys.App
             Application.SetCompatibleTextRenderingDefault(false);
             //启动领域项目
             new RafyApp().Startup();
-            Application.Run(new frmMain());
+            frmLogin fl = new frmLogin();
+            fl.ShowDialog();
+            if (fl.DialogResult == DialogResult.OK)
+            {
+                frmMain frm = new frmMain();
+                frm.User = fl._userInfo;
+                Application.Run(frm);
+            }
+            else
+            {
+                return;
+            }
         }
     }
     class RafyApp : DomainApp
@@ -51,7 +62,7 @@ namespace Rafy.Sys.App
         protected override void OnRuntimeStarting()
         {
             base.OnRuntimeStarting();
-            DbSettingNames.RafyPlugins = DbSettingNames.DbMigrationHistory 
+            DbSettingNames.RafyPlugins = DbSettingNames.DbMigrationHistory
                 = SysDomainPlugin.DbSettingName;//将所有配置统一在一个数据库中
             if (ConfigurationHelper.GetAppSettingOrDefault("AutoUpdateDb", false))
             {

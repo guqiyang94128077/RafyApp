@@ -8,12 +8,12 @@ namespace Rafy.Sys.App
 {
     public partial class frmMain : Form, IAppContext
     {
-        public UserInfo User
-        {
-            get { return _user; }
-            set { _user = value; }
-        }
-        UserInfo _user = new UserInfo() { UserId = 10001, UserName = "admin" };
+        public UserInfo User { set; get; }
+        //{
+        //    get { return _user; }
+        //    set { _user = value; }
+        //}
+        //UserInfo _user = new UserInfo() { UserId = 10001, UserName = "admin" };
 
         public frmMain()
         {
@@ -22,23 +22,7 @@ namespace Rafy.Sys.App
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //var repo = RF.ResolveInstance<UserRepository>();
-            //using (var tran = RF.TransactionScope(repo))
-            //{
-            //    var controller = DomainControllerFactory.Create<AccountController>();
-            //    controller.IdentityMode = UserIdentityMode.Email | UserIdentityMode.UserName;
-            //    var res = controller.Register(new User
-            //    {
-            //        UserName = "admin",
-            //        Email = "admin@qq.com",
-            //        Password = controller.EncodePassword("admin")
-            //    });
-
-            //    User user = null;
-            //    var reslogin = controller.LoginByEmail("admin@qq.com", "admin1", out user);
-            //    tran.Complete();
-            //    MessageBox.Show(reslogin.Success.ToString());
-            //}
+            
             AccordionControlElement elem = new AccordionControlElement();
             elem.Text= "菜单组";
             elem.Name = "菜单组";
@@ -104,7 +88,8 @@ namespace Rafy.Sys.App
             foreach (Type type in types)
             {
                 if (type.FullName == fullName && type.GetInterface("IPlugIn") != null)
-                {//仅是需要加载的对象才创建插件的实例
+                {   
+                    //仅是需要加载的对象才创建插件的实例
                     IPlugIn plugIn = (IPlugIn)Activator.CreateInstance(type);
                     plugIn.AppContext = this;
                     return plugIn;
