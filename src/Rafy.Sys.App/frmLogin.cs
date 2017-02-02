@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
 using Rafy.Domain;
 using Rafy.Accounts;
 using Rafy.Accounts.Controllers;
@@ -13,7 +12,7 @@ using Rafy.UI.PlugInCommon;
 
 namespace Rafy.Sys.App
 {
-    public partial class frmLogin : DevComponents.DotNetBar.Metro.MetroForm
+    public partial class frmLogin : Form
     {
         public frmLogin()
         {
