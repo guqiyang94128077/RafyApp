@@ -35,9 +35,9 @@ namespace Rafy.Sys.App
             fl.ShowDialog();
             if (fl.DialogResult == DialogResult.OK)
             {
-                frmMain frm = new frmMain();
-                frm.User = fl._userInfo;
-                Application.Run(frm);
+                //frmMain frm = new frmMain();
+                //frm.User = fl._userInfo;
+                Application.Run(new frmMain());
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Rafy.Sys.App
                 svc.Options = new MigratingOptions
                 {
                     ReserveHistory = true,//ReserveHistory 表示是否需要保存所有数据库升级的历史记录
-                    RunDataLossOperation = DataLossOperation.None,//要禁止数据库表、字段的删除操作，请使用 DataLossOperation.None 值。
+                    RunDataLossOperation = DataLossOperation.All,//要禁止数据库表、字段的删除操作，请使用 DataLossOperation.None 值。
                     Databases = new string[] { SysDomainPlugin.DbSettingName }
                 };
                 svc.Invoke();

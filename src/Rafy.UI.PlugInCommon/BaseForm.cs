@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
+using Rafy.Accounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,12 @@ namespace Rafy.UI.PlugInCommon
         /// <summary>
         /// 上下文
         /// </summary>
-        public IAppContext _appContext = null;
+        public AppContext _appContext = null;
         public BaseForm()
         {
             InitializeComponent();
         }
-        public BaseForm(IAppContext appContext) //:  this()
+        public BaseForm(AppContext appContext) //:  this()
         {
             InitializeComponent();
             _appContext = appContext;

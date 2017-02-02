@@ -19,11 +19,14 @@ namespace Rafy.Sys.Modules
                 IniEditGridView(this.gridView1);
             }
         }
+
+        
+
         /// <summary>
         /// 自定义构造函数
         /// </summary>
         /// <param name="appContext"></param>
-        public frmModules(IAppContext appContext) : this()
+        public frmModules(AppContext appContext) : this()
         {
             _appContext = appContext;//
 

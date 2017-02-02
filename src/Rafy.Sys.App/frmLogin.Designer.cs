@@ -28,98 +28,214 @@ namespace Rafy.Sys.App
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPwd = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExt = new DevExpress.XtraEditors.SimpleButton();
+            this.UserNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.PwdTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForUserName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForPwd = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
+            this.dataLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PwdTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForUserName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPwd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // SharedstyleController
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ÓÃ»§Ãû";
+            this.SharedstyleController.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
+            this.SharedstyleController.AppearanceDisabled.Options.UseBackColor = true;
+            this.SharedstyleController.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SharedstyleController.AppearanceFocused.Options.UseBackColor = true;
+            this.SharedstyleController.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SharedstyleController.AppearanceReadOnly.Options.UseBackColor = true;
             // 
-            // txtName
+            // dataLayoutControl1
             // 
-            this.txtName.Location = new System.Drawing.Point(139, 26);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(218, 26);
-            this.txtName.TabIndex = 1;
+            this.dataLayoutControl1.Controls.Add(this.btnExit);
+            this.dataLayoutControl1.Controls.Add(this.btnLogin);
+            this.dataLayoutControl1.Controls.Add(this.UserNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.PwdTextEdit);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(87, 68);
+            this.dataLayoutControl1.Name = "dataLayoutControl1";
+            this.dataLayoutControl1.Root = this.layoutControlGroup1;
+            this.dataLayoutControl1.Size = new System.Drawing.Size(325, 121);
+            this.dataLayoutControl1.StyleController = this.SharedstyleController;
+            this.dataLayoutControl1.TabIndex = 0;
+            this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // txtPwd
+            // btnExit
             // 
-            this.txtPwd.Location = new System.Drawing.Point(139, 78);
-            this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(218, 26);
-            this.txtPwd.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "ÃÜÂë";
+            this.btnExit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnExit.Location = new System.Drawing.Point(188, 80);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(121, 25);
+            this.btnExit.StyleController = this.dataLayoutControl1;
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "ÍË³ö";
+            this.btnExit.Click += new System.EventHandler(this.btnExt_Click);
             // 
             // btnLogin
             // 
             this.btnLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnLogin.Location = new System.Drawing.Point(139, 130);
+            this.btnLogin.Location = new System.Drawing.Point(60, 80);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(82, 25);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Size = new System.Drawing.Size(122, 25);
+            this.btnLogin.StyleController = this.dataLayoutControl1;
+            this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "µÇÂ½";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // btnExt
+            // UserNameTextEdit
             // 
-            this.btnExt.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnExt.Location = new System.Drawing.Point(275, 130);
-            this.btnExt.Name = "btnExt";
-            this.btnExt.Size = new System.Drawing.Size(82, 25);
-            this.btnExt.TabIndex = 4;
-            this.btnExt.Text = "ÍË³ö";
-            this.btnExt.Click += new System.EventHandler(this.btnExt_Click);
+            this.UserNameTextEdit.EnterMoveNextControl = true;
+            this.UserNameTextEdit.Location = new System.Drawing.Point(65, 16);
+            this.UserNameTextEdit.Name = "UserNameTextEdit";
+            this.UserNameTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.UserNameTextEdit.Size = new System.Drawing.Size(244, 26);
+            this.UserNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.UserNameTextEdit.TabIndex = 4;
+            // 
+            // PwdTextEdit
+            // 
+            this.PwdTextEdit.EnterMoveNextControl = true;
+            this.PwdTextEdit.Location = new System.Drawing.Point(65, 48);
+            this.PwdTextEdit.Name = "PwdTextEdit";
+            this.PwdTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.PwdTextEdit.Properties.PasswordChar = '*';
+            this.PwdTextEdit.Size = new System.Drawing.Size(244, 26);
+            this.PwdTextEdit.StyleController = this.dataLayoutControl1;
+            this.PwdTextEdit.TabIndex = 6;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.emptySpaceItem1,
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
+            this.layoutControlGroup1.Size = new System.Drawing.Size(325, 121);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.AllowDrawBackground = false;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForUserName,
+            this.ItemForPwd});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "autoGeneratedGroup0";
+            this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 4;
+            this.layoutControlGroup2.Size = new System.Drawing.Size(299, 64);
+            // 
+            // ItemForUserName
+            // 
+            this.ItemForUserName.Control = this.UserNameTextEdit;
+            this.ItemForUserName.Location = new System.Drawing.Point(0, 0);
+            this.ItemForUserName.Name = "ItemForUserName";
+            this.ItemForUserName.Size = new System.Drawing.Size(299, 32);
+            this.ItemForUserName.Text = "µÇÂ¼Ãû";
+            this.ItemForUserName.TextSize = new System.Drawing.Size(45, 18);
+            // 
+            // ItemForPwd
+            // 
+            this.ItemForPwd.Control = this.PwdTextEdit;
+            this.ItemForPwd.Location = new System.Drawing.Point(0, 32);
+            this.ItemForPwd.Name = "ItemForPwd";
+            this.ItemForPwd.Size = new System.Drawing.Size(299, 32);
+            this.ItemForPwd.Text = "ÃÜÂë";
+            this.ItemForPwd.TextSize = new System.Drawing.Size(45, 18);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 64);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(44, 31);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.btnLogin;
+            this.layoutControlItem1.Location = new System.Drawing.Point(44, 64);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(128, 31);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnExit;
+            this.layoutControlItem2.Location = new System.Drawing.Point(172, 64);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(127, 31);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // frmLogin
             // 
+            this.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.Appearance.Options.UseFont = true;
+            this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 213);
-            this.Controls.Add(this.btnExt);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPwd);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(499, 273);
+            this.Controls.Add(this.dataLayoutControl1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Black;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "µÇÂ½";
+            this.Text = "ÏµÍ³µÇÂ½";
             this.TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
+            this.dataLayoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PwdTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForUserName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPwd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
+        private DevExpress.XtraEditors.TextEdit UserNameTextEdit;
+        private DevExpress.XtraEditors.TextEdit PwdTextEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForUserName;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForPwd;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
-        private DevExpress.XtraEditors.SimpleButton btnExt;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

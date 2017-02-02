@@ -9,20 +9,43 @@ namespace Rafy.Sys.App
     public partial class frmMain : Form, IAppContext
     {
         public UserInfo User { set; get; }
-        //{
-        //    get { return _user; }
-        //    set { _user = value; }
-        //}
-        //UserInfo _user = new UserInfo() { UserId = 10001, UserName = "admin" };
-
         public frmMain()
         {
             InitializeComponent();
+            this.FormClosing += FrmMain_FormClosing;
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageDxUtil.ShowYesNoAndWarning("是否退出系统？") == DialogResult.Yes)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region 设置显示的系统信息
+            this.tslLoginName.Text += RafyEnvironment.Principal.Identity.Name;
+            this.tslGroupName.Text += "Group";
+            switch (RafyEnvironment.Location.DataPortalMode)
+            {
+                case DataPortalMode.ConnectDirectly:
+                    this.tslDataPortalMode.Text += "数据库直连模式";
+                    break;
+                case DataPortalMode.ThroughService:
+                    this.tslDataPortalMode.Text += "WCF服务模式";
+                    break;
+                default:
+                    this.tslDataPortalMode.Text += "未知";
+                    break;
+            }
             
+            #endregion
             AccordionControlElement elem = new AccordionControlElement();
             elem.Text= "菜单组";
             elem.Name = "菜单组";
@@ -33,7 +56,7 @@ namespace Rafy.Sys.App
             elem1.Name = "菜单";
             elem1.Style = ElementStyle.Item;
             elem1.Tag = "MyPlugIn1.MyPlugIn1,MyPlugIn1.dll";
-            elem1.Click += Elem1_Click;
+            elem1.Click += Elem_Click;
             elem.Elements.Add(elem1);
 
             AccordionControlElement elem2 = new AccordionControlElement();
@@ -41,11 +64,11 @@ namespace Rafy.Sys.App
             elem2.Name = "ModulesPlugin";
             elem2.Style = ElementStyle.Item;
             elem2.Tag = "Rafy.Sys.Modules.ModulesPlugin,Rafy.Sys.Modules.dll";
-            elem2.Click += Elem1_Click;
+            elem2.Click += Elem_Click;
             elem.Elements.Add(elem2);
         }
 
-        private void Elem1_Click(object sender, EventArgs e)
+        private void Elem_Click(object sender, EventArgs e)
         {
             AccordionControlElement tooStripMenu = sender as AccordionControlElement;
             if (tooStripMenu == null)
@@ -55,11 +78,11 @@ namespace Rafy.Sys.App
             string  tag = tooStripMenu.Tag as string ;
             if (string .IsNullOrWhiteSpace(tag))
                 return;
+            //获取插件目录
+            string Pluginspath = ConfigurationHelper.GetAppSettingOrDefault("PluginsPath", @"\plugins\");
             //获取插件对象
-            IPlugIn plugIn = LoadPlugIn(@"\plugins\"+ tag.Split(',')[1], tag.Split(',')[0]);
-
-            //创建子窗体并显示
-
+            IPlugIn plugIn = LoadPlugIn(Pluginspath + tag.Split(',')[1], tag.Split(',')[0]);
+            
             //创建子窗体并显示
             BaseForm plugInForm = plugIn.CreatePlugInForm();
             plugInForm.MdiParent = this;
