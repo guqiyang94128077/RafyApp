@@ -75,13 +75,13 @@ namespace Rafy.Sys.Modules
             
             this.gridView1.PostEditor();
             var repo = RF.ResolveInstance<ModulesRepository>();
-            _ModulesList = this.modulesGridControl.DataSource as ModulesList;
+            _ModulesList = this.modulesGridControl.DataSource  as ModulesList;
             _ModulesList = repo.Save(_ModulesList) as ModulesList;
             BindUI(_ModulesList);
         }
 
         private void BindUI(ModulesList list) {
-            this.modulesGridControl.DataSource = list;
+            this.modulesGridControl.DataSource = list.ToDataTable();
             this.gridView1.RefreshData();
         }
 

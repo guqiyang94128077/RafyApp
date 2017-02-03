@@ -31,6 +31,7 @@ namespace Rafy.Sys.App
             Application.SetCompatibleTextRenderingDefault(false);
             //启动领域项目
             new RafyApp().Startup();
+
             frmLogin fl = new frmLogin();
             fl.ShowDialog();
             if (fl.DialogResult == DialogResult.OK)
@@ -43,6 +44,18 @@ namespace Rafy.Sys.App
             {
                 return;
             }
+        }
+    }
+
+    /// <summary>
+    /// 客户端使用的应用程序类型。
+    /// </summary>
+    public class ClientDomainApp : DomainApp
+    {
+        protected override void InitEnvironment()
+        {
+            RafyEnvironment.Location.DataPortalMode = DataPortalMode.ThroughService;
+            base.InitEnvironment();
         }
     }
     class RafyApp : DomainApp
@@ -62,19 +75,21 @@ namespace Rafy.Sys.App
         protected override void OnRuntimeStarting()
         {
             base.OnRuntimeStarting();
-            DbSettingNames.RafyPlugins = DbSettingNames.DbMigrationHistory
-                = SysDomainPlugin.DbSettingName;//将所有配置统一在一个数据库中
-            if (ConfigurationHelper.GetAppSettingOrDefault("AutoUpdateDb", false))
-            {
-                var svc = ServiceFactory.Create<MigrateService>();
-                svc.Options = new MigratingOptions
-                {
-                    ReserveHistory = true,//ReserveHistory 表示是否需要保存所有数据库升级的历史记录
-                    RunDataLossOperation = DataLossOperation.All,//要禁止数据库表、字段的删除操作，请使用 DataLossOperation.None 值。
-                    Databases = new string[] { SysDomainPlugin.DbSettingName }
-                };
-                svc.Invoke();
-            }
+            //DbSettingNames.RafyPlugins = DbSettingNames.DbMigrationHistory
+            //    = SysDomainPlugin.DbSettingName;//将所有配置统一在一个数据库中
+            RafyEnvironment.Location.IsWPFUI = true;
+            RafyEnvironment.Location.DataPortalMode = DataPortalMode.ThroughService;
+            //if (ConfigurationHelper.GetAppSettingOrDefault("AutoUpdateDb", false))
+            //{
+            //    var svc = ServiceFactory.Create<MigrateService>();
+            //    svc.Options = new MigratingOptions
+            //    {
+            //        ReserveHistory = true,//ReserveHistory 表示是否需要保存所有数据库升级的历史记录
+            //        RunDataLossOperation = DataLossOperation.All,//要禁止数据库表、字段的删除操作，请使用 DataLossOperation.None 值。
+            //        Databases = new string[] { SysDomainPlugin.DbSettingName }
+            //    };
+            //    svc.Invoke();
+            //}
         }
     }
 }
