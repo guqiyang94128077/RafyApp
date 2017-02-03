@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rafy.Sys.Domain", "Rafy.Sys.Domain\Rafy.Sys.Domain.csproj", "{9FF37989-33E7-4D67-8E81-0A443EAEE510}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rafy.Sys.App", "Rafy.Sys.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rafy.UI.PlugInCommon", "Rafy.UI.PlugInCommon\Rafy.UI.PlugInCommon.csproj", "{7D26D4F6-6678-40D2-86A7-C7375D392955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPlugIn1", "MyPlugIn1\MyPlugIn1.csproj", "{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rafy.Sys.Modules", "Plugins\Rafy.Sys.Modules\Rafy.Sys.Modules.csproj", "{CB6AA30D-C3BB-4DAD-98D8-BAE6834DA6A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{F53FA7C9-6353-4076-BC5E-91B30A8C6ED8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RafyApp.WCFPortal", "RafyApp.WCFPortal\RafyApp.WCFPortal.csproj", "{4F5CD286-85D1-40C8-8E73-A194D344CA5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPlugIn1", "Plugins\MyPlugIn1\MyPlugIn1.csproj", "{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{7D26D4F6-6678-40D2-86A7-C7375D392955}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D26D4F6-6678-40D2-86A7-C7375D392955}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D26D4F6-6678-40D2-86A7-C7375D392955}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB6AA30D-C3BB-4DAD-98D8-BAE6834DA6A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB6AA30D-C3BB-4DAD-98D8-BAE6834DA6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB6AA30D-C3BB-4DAD-98D8-BAE6834DA6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,12 +43,16 @@ Global
 		{4F5CD286-85D1-40C8-8E73-A194D344CA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F5CD286-85D1-40C8-8E73-A194D344CA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F5CD286-85D1-40C8-8E73-A194D344CA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C} = {F53FA7C9-6353-4076-BC5E-91B30A8C6ED8}
 		{CB6AA30D-C3BB-4DAD-98D8-BAE6834DA6A1} = {F53FA7C9-6353-4076-BC5E-91B30A8C6ED8}
+		{93828C1B-1B93-45D6-B9E1-EDBA85835B0C} = {F53FA7C9-6353-4076-BC5E-91B30A8C6ED8}
 	EndGlobalSection
 EndGlobal

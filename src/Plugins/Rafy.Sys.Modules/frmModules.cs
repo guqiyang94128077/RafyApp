@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
-using Rafy.Domain;
+﻿using Rafy.Domain;
 using Rafy.Sys.Domain;
 using Rafy.UI.PlugInCommon;
 using System;
@@ -26,7 +25,8 @@ namespace Rafy.Sys.Modules
         /// 自定义构造函数
         /// </summary>
         /// <param name="appContext"></param>
-        public frmModules(AppContext appContext) : this()
+        public frmModules(IAppContext appContext)
+            : this()
         {
             _appContext = appContext;//
 

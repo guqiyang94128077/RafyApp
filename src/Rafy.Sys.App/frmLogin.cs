@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Rafy.Domain;
 using Rafy.Accounts;
@@ -26,12 +22,24 @@ namespace Rafy.Sys.App
         public User _userInfo;
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var repo = RF.ResolveInstance<UserRepository>();
-
+            #region 验证
+            if (UserNameTextEdit.Text.Trim().Length == 0)
+            {
+                errorProvider1.SetError(UserNameTextEdit, "登陆用户名不能为空！");
+                return;
+            }
+            errorProvider1.Clear();
+            if (PwdTextEdit.Text.Trim().Length == 0)
+            {
+                errorProvider1.SetError(PwdTextEdit, "密码不能为空！");
+                return;
+            }
+            errorProvider1.Clear();
+            #endregion
+            
             var controller = DomainControllerFactory.Create<AccountController>();
             controller.IdentityMode = UserIdentityMode.Email | UserIdentityMode.UserName;
             _userInfo = null;
-            
             var reslogin = controller.LoginByUserName(UserNameTextEdit.Text.Trim(), PwdTextEdit.Text.Trim(), out _userInfo);
             if (reslogin.Success)
             {
@@ -45,10 +53,11 @@ namespace Rafy.Sys.App
             }
         }
 
-        
+
         private void btnExt_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            this.Close();
         }
         #region 无边框窗体拖动
         //-------------------无边框窗体拖动---------------------------
@@ -99,7 +108,8 @@ namespace Rafy.Sys.App
     /// <summary>
     /// 登陆类
     /// </summary>
-    public class LoginModel {
+    public class LoginModel
+    {
         /// <summary>
         /// 登录名
         /// </summary>

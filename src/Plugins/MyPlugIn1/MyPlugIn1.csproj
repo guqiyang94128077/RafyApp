@@ -86,7 +86,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rafy.UI.PlugInCommon\Rafy.UI.PlugInCommon.csproj">
+    <ProjectReference Include="..\..\Rafy.UI.PlugInCommon\Rafy.UI.PlugInCommon.csproj">
       <Project>{7d26d4f6-6678-40d2-86a7-c7375d392955}</Project>
       <Name>Rafy.UI.PlugInCommon</Name>
       <Private>False</Private>

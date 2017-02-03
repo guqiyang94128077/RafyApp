@@ -1,12 +1,4 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
-using Rafy.Accounts;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Rafy.UI.PlugInCommon
 {
@@ -15,12 +7,12 @@ namespace Rafy.UI.PlugInCommon
         /// <summary>
         /// 上下文
         /// </summary>
-        public AppContext _appContext = null;
+        public IAppContext _appContext = null;
         public BaseForm()
         {
             InitializeComponent();
         }
-        public BaseForm(AppContext appContext) //:  this()
+        public BaseForm(IAppContext appContext) //:  this()
         {
             InitializeComponent();
             _appContext = appContext;

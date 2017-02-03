@@ -9,9 +9,9 @@ namespace Rafy.UI.PlugInCommon
     /// <summary>
     /// 上下文
     /// </summary>
-    public interface IAppContext<TUser>
+    public interface IAppContext
     {
-        TUser User { get; set; }
+        UserInfo User { get; set; }
 
         //还可以定义很多需要的属性
     }
