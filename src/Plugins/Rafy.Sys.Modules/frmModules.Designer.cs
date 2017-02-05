@@ -43,11 +43,23 @@
             this.modulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.modulesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // SharedstyleController
+            // 
+            this.SharedstyleController.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
+            this.SharedstyleController.AppearanceDisabled.Options.UseBackColor = true;
+            this.SharedstyleController.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SharedstyleController.AppearanceFocused.Options.UseBackColor = true;
+            this.SharedstyleController.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SharedstyleController.AppearanceReadOnly.Options.UseBackColor = true;
             // 
             // barManager1
             // 
@@ -151,12 +163,12 @@
             // modulesGridControl
             // 
             this.modulesGridControl.DataSource = this.modulesBindingSource;
-            this.modulesGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modulesGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.modulesGridControl.Location = new System.Drawing.Point(0, 50);
             this.modulesGridControl.MainView = this.gridView1;
             this.modulesGridControl.MenuManager = this.barManager1;
             this.modulesGridControl.Name = "modulesGridControl";
-            this.modulesGridControl.Size = new System.Drawing.Size(1296, 594);
+            this.modulesGridControl.Size = new System.Drawing.Size(1296, 207);
             this.modulesGridControl.TabIndex = 5;
             this.modulesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -166,9 +178,18 @@
             this.gridView1.GridControl = this.modulesGridControl;
             this.gridView1.Name = "gridView1";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 257);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1296, 190);
+            this.panelControl1.TabIndex = 10;
+            // 
             // frmModules
             // 
             this.ClientSize = new System.Drawing.Size(1296, 644);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.modulesGridControl);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -180,10 +201,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmModules_FormClosing);
             this.Load += new System.EventHandler(this.frmModules_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +226,6 @@
         private DevExpress.XtraGrid.GridControl modulesGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         internal System.Windows.Forms.BindingSource modulesBindingSource;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

@@ -2,24 +2,29 @@
 using Rafy.Sys.Domain;
 using Rafy.UI.PlugInCommon;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Rafy.Sys.Modules
 {
-    
+
     public partial class frmModules : BaseForm
     {
-        
-        internal ModulesList _ModulesList { set; get; }
+
+        internal ModulesList _CurrModulesList { set; get; }
+        internal Rafy.Sys.Domain.Modules _CurrModules { set; get; }
+        public BindingSource bs { set; get; }
         public frmModules()
         {
             InitializeComponent();
-            if (!DesignMode) {
+            if (!DesignMode)
+            {
                 IniEditGridView(this.gridView1);
             }
         }
 
-        
+
 
         /// <summary>
         /// 自定义构造函数
@@ -31,14 +36,14 @@ namespace Rafy.Sys.Modules
             _appContext = appContext;//
 
         }
-        
+
         private void frmModules_Load(object sender, EventArgs e)
         {
             try
             {
                 var repo = RF.ResolveInstance<ModulesRepository>();
-                _ModulesList = repo.GetAll();
-                BindUI(_ModulesList);
+                _CurrModulesList = repo.GetAll();
+                BindUI(_CurrModulesList);
             }
             catch (Exception ex)
             {
@@ -54,17 +59,17 @@ namespace Rafy.Sys.Modules
             }
             if (e.Item.Name == "tlEdit")
             {
-                MessageDxUtil.ShowWarning("登陆用户："+_appContext.User.UserName);
+                MessageDxUtil.ShowWarning("登陆用户：" + _appContext.User.UserName);
             }
             if (e.Item.Name == "tlAdd")
             {
                 var repo = RF.ResolveInstance<ModulesRepository>();
                 Rafy.Sys.Domain.Modules entity = repo.New();
-                _ModulesList.Add(entity);
+                _CurrModulesList.Add(entity);
             }
             if (e.Item.Name == "tlDelete")
             {
-                BindUI(_ModulesList);
+                BindUI(_CurrModulesList);
             }
         }
         /// <summary>
@@ -72,24 +77,29 @@ namespace Rafy.Sys.Modules
         /// </summary>
         private void Save()
         {
-            
+
             this.gridView1.PostEditor();
             var repo = RF.ResolveInstance<ModulesRepository>();
-            _ModulesList = this.modulesGridControl.DataSource  as ModulesList;
-            _ModulesList = repo.Save(_ModulesList) as ModulesList;
-            BindUI(_ModulesList);
+            _CurrModulesList = this.modulesGridControl.DataSource as ModulesList;
+            _CurrModulesList = repo.Save(_CurrModulesList) as ModulesList;
+            BindUI(_CurrModulesList);
         }
 
-        private void BindUI(ModulesList list) {
-            this.modulesGridControl.DataSource = list.ToDataTable();
-            this.gridView1.RefreshData();
+        private void BindUI(ModulesList list)
+        {
+            //bs.DataSource = typeof(Rafy.Sys.Domain.Modules);
+            //bs.DataSource=list.ToDataTable
+            //this.modulesGridControl.DataSource = list;//.ToDataTable();
+            //this.gridView1.RefreshData();
+            this.modulesBindingSource.DataSource = list;
         }
 
         private void frmModules_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
-            if (_ModulesList.IsDirty) {
+            if (_CurrModulesList.IsDirty)
+            {
 
-                if (MessageDxUtil.ShowYesNoAndWarning("窗体【" + this.Text + "】有数据没有保存，是否放弃保存并且关闭窗体？")==DialogResult.Yes)
+                if (MessageDxUtil.ShowYesNoAndWarning("窗体【" + this.Text + "】有数据没有保存，是否放弃保存并且关闭窗体？") == DialogResult.Yes)
                 {
                     e.Cancel = false;
                 }
@@ -99,6 +109,6 @@ namespace Rafy.Sys.Modules
                 }
             }
         }
-        
+
     }
 }
