@@ -18,8 +18,15 @@ namespace Rafy.Sys.App
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(Form_MouseUp);
+            
         }
         public User _userInfo;
+        
+        
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
+        }
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             #region 验证
@@ -36,7 +43,7 @@ namespace Rafy.Sys.App
             }
             errorProvider1.Clear();
             #endregion
-            
+
             var controller = DomainControllerFactory.Create<AccountController>();
             controller.IdentityMode = UserIdentityMode.Email | UserIdentityMode.UserName;
             _userInfo = null;
@@ -53,7 +60,46 @@ namespace Rafy.Sys.App
             }
         }
 
+        #region private void SaveLogOnInfo(BaseUserInfo userInfo) 将登录信息保存到XML文件中
+        /// <summary>
+        /// 将登录信息保存到XML文件中。
+        /// 若不保存用户名密码，那就应该删除掉。
+        /// </summary>
+        /// <param name="userInfo">登录用户</param>
+        private void SaveLogOnInfo(LoginModel userInfo)
+        {
+            //BaseSystemInfo.RememberPassword = this.chkRememberPassword.Checked;
+            //if (this.chkRememberPassword.Checked)
+            //{
+            //    BaseSystemInfo.CurrentUserName = userInfo.UserName;
+            //    // BaseSystemInfo.CurrentUserName = SecretUtil.Encrypt(userInfo.UserName);
+            //    BaseSystemInfo.CurrentPassword = SecretUtil.Encrypt(this.txtPassword.Text);
+            //}
+            //else
+            //{
+            //    BaseSystemInfo.CurrentUserName = string.Empty;
+            //    BaseSystemInfo.CurrentPassword = string.Empty;
+            //}
+            //// 保存用户的信息
+            //UserConfigHelper.SaveConfig();
 
+            /*
+            // 写入注册表，有时候会没有权限，发生异常信息等，可以考虑写入XML文件
+            RegistryKey registryKey = Registry.LocalMachine.CreateSubKey(@"Software\" + BaseConfiguration.COMPANY_NAME + "\\" + BaseSystemInfo.SoftName);
+            if (this.chkRememberPassword.Checked)
+            {
+                // 默认的信息写入注册表,呵呵需要改进一下
+                registryKey.SetValue(BaseConfiguration.CURRENT_USERNAME, SecretUtil.Encrypt(userInfo.UserName));
+                registryKey.SetValue(BaseConfiguration.CURRENT_PASSWORD, SecretUtil.Encrypt(this.txtPassword.Text));
+            }
+            else
+            {
+                registryKey.SetValue(BaseConfiguration.CURRENT_USERNAME, string.Empty);
+                registryKey.SetValue(BaseConfiguration.CURRENT_PASSWORD, string.Empty);
+            }
+            */
+        }
+        #endregion
         private void btnExt_Click(object sender, EventArgs e)
         {
             //Application.Exit();
@@ -104,9 +150,10 @@ namespace Rafy.Sys.App
         //------------------------end 无边框窗体拖动-----------------------------------
         #endregion
 
+       
     }
     /// <summary>
-    /// 登陆类
+    /// 登陆信息模型类
     /// </summary>
     public class LoginModel
     {
@@ -122,5 +169,9 @@ namespace Rafy.Sys.App
         /// 密码
         /// </summary>
         public string Pwd { set; get; }
+        /// <summary>
+        /// 是否记住密码
+        /// </summary>
+        public bool IsRememberPassword { set; get; }
     }
 }

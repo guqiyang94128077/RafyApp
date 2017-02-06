@@ -141,6 +141,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LoginModel.datasource" />
     <None Include="Properties\DataSources\Rafy.Sys.Domain.Modules.datasource" />
     <None Include="Properties\DataSources\Rafy.Sys.Domain.ModulesList.datasource" />
     <None Include="Properties\Settings.settings">

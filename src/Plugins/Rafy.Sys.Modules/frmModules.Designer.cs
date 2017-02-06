@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModules));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.tlAdd = new DevExpress.XtraBars.BarButtonItem();
             this.tlEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -40,16 +39,18 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.modulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.modulesBindingSource = new System.Windows.Forms.BindingSource();
             this.modulesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.modulesBindingSource1 = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modulesGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modulesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // SharedstyleController
@@ -183,8 +184,12 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 257);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1296, 190);
+            this.panelControl1.Size = new System.Drawing.Size(1296, 391);
             this.panelControl1.TabIndex = 10;
+            // 
+            // modulesBindingSource1
+            // 
+            this.modulesBindingSource1.DataSource = typeof(Rafy.Sys.Domain.Modules);
             // 
             // frmModules
             // 
@@ -207,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.modulesGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modulesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +233,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         internal System.Windows.Forms.BindingSource modulesBindingSource;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.BindingSource modulesBindingSource1;
     }
 }
