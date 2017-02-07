@@ -197,10 +197,7 @@
         h8E3bYHZhg9g5pu2AD6V99/gX8A98c2qwBm4w564w36k4QtaC2pTkRLrNgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="modulesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="modulesViewModelBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>389, 17</value>
-  </metadata>
-  <metadata name="modulesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>617, 17</value>
   </metadata>
 </root>

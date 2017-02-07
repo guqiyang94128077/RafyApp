@@ -21,6 +21,9 @@
             </PropertyUISettings>
          </TypeUISetting>
       </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="TreeChildren" Version="1.0">
+         <TypeInfo>Rafy.Domain.ITreeEntity, Rafy, Version=3.57.3302.0, Culture=neutral, PublicKeyToken=f7937325279b37cf</TypeInfo>
+      </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="PropertiesContainer" Version="1.0">
          <TypeInfo>Rafy.ManagedProperty.ConsolidatedTypePropertiesContainer, Rafy, Version=3.57.3302.0, Culture=neutral, PublicKeyToken=f7937325279b37cf</TypeInfo>
          <TypeUISetting>
@@ -37,4 +40,43 @@
       </GenericObjectDataSource>
    </Children>
    <TypeInfo>Rafy.Sys.Domain.Modules, Rafy.Sys.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeUISetting>
+      <PropertyUISettings>
+         <PropertyUISetting Name="IsDirty">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[无]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="DynamicPropertiesCount">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[无]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="TreeIndex">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[无]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="TreePId">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[无]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="SupportTree">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[无]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+      </PropertyUISettings>
+   </TypeUISetting>
 </GenericObjectDataSource>

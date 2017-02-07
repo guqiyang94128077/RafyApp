@@ -91,7 +91,7 @@ namespace Rafy.Sys.Modules
             //bs.DataSource=list.ToDataTable
             //this.modulesGridControl.DataSource = list;//.ToDataTable();
             //this.gridView1.RefreshData();
-            this.modulesBindingSource.DataSource = list;
+            //this.modulesBindingSource.DataSource = list;
         }
 
         private void frmModules_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
@@ -110,5 +110,14 @@ namespace Rafy.Sys.Modules
             }
         }
 
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            //modulesViewModelBindingSource.
+            this.modulesViewModelBindingSource.EndEdit();
+            var v = modulesViewModelBindingSource.DataSource as ModulesViewModel;
+            if (v == null)
+                return;
+            MessageDxUtil.ShowWarning(_CurrModules.ModuleName);
+        }
     }
 }
