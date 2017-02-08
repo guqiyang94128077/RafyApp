@@ -43,12 +43,12 @@
             this.modulesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.assemblyTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.modulesViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.idSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.moduleAssemblyTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.moduleGuidTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.moduleNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.moduleTypeTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -67,10 +67,9 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.assemblyTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.modulesViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moduleAssemblyTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleGuidTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleTypeTextEdit.Properties)).BeginInit();
@@ -206,6 +205,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.dataLayoutControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -214,98 +214,97 @@
             this.panelControl1.Size = new System.Drawing.Size(1296, 463);
             this.panelControl1.TabIndex = 10;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(348, 294);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(161, 38);
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "simpleButton2";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(337, 331);
+            this.simpleButton1.Location = new System.Drawing.Point(146, 294);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(216, 43);
+            this.simpleButton1.Size = new System.Drawing.Size(161, 38);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "simpleButton1";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.assemblyTextEdit);
             this.dataLayoutControl1.Controls.Add(this.descriptionTextEdit);
             this.dataLayoutControl1.Controls.Add(this.idSpinEdit);
+            this.dataLayoutControl1.Controls.Add(this.moduleAssemblyTextEdit);
             this.dataLayoutControl1.Controls.Add(this.moduleGuidTextEdit);
             this.dataLayoutControl1.Controls.Add(this.moduleNameTextEdit);
             this.dataLayoutControl1.Controls.Add(this.moduleTypeTextEdit);
-            this.dataLayoutControl1.Location = new System.Drawing.Point(310, 97);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(101, 26);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(645, 228);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(477, 249);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // assemblyTextEdit
-            // 
-            this.assemblyTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "Assembly", true));
-            this.assemblyTextEdit.Location = new System.Drawing.Point(115, 16);
-            this.assemblyTextEdit.MenuManager = this.barManager1;
-            this.assemblyTextEdit.Name = "assemblyTextEdit";
-            this.assemblyTextEdit.Size = new System.Drawing.Size(514, 24);
-            this.assemblyTextEdit.StyleController = this.dataLayoutControl1;
-            this.assemblyTextEdit.TabIndex = 5;
-            // 
-            // modulesViewModelBindingSource
-            // 
-            this.modulesViewModelBindingSource.DataSource = typeof(Rafy.Sys.Modules.ModulesViewModel);
-            // 
             // descriptionTextEdit
             // 
-            this.descriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "Description", true));
-            this.descriptionTextEdit.Location = new System.Drawing.Point(115, 46);
+            this.descriptionTextEdit.Location = new System.Drawing.Point(138, 16);
             this.descriptionTextEdit.MenuManager = this.barManager1;
             this.descriptionTextEdit.Name = "descriptionTextEdit";
-            this.descriptionTextEdit.Size = new System.Drawing.Size(514, 24);
+            this.descriptionTextEdit.Size = new System.Drawing.Size(323, 24);
             this.descriptionTextEdit.StyleController = this.dataLayoutControl1;
-            this.descriptionTextEdit.TabIndex = 7;
+            this.descriptionTextEdit.TabIndex = 5;
             // 
             // idSpinEdit
             // 
-            this.idSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "Id", true));
             this.idSpinEdit.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.idSpinEdit.Location = new System.Drawing.Point(115, 76);
+            this.idSpinEdit.Location = new System.Drawing.Point(138, 46);
             this.idSpinEdit.MenuManager = this.barManager1;
             this.idSpinEdit.Name = "idSpinEdit";
             this.idSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.idSpinEdit.Size = new System.Drawing.Size(514, 24);
+            this.idSpinEdit.Size = new System.Drawing.Size(323, 24);
             this.idSpinEdit.StyleController = this.dataLayoutControl1;
-            this.idSpinEdit.TabIndex = 9;
+            this.idSpinEdit.TabIndex = 7;
+            // 
+            // moduleAssemblyTextEdit
+            // 
+            this.moduleAssemblyTextEdit.Location = new System.Drawing.Point(138, 76);
+            this.moduleAssemblyTextEdit.MenuManager = this.barManager1;
+            this.moduleAssemblyTextEdit.Name = "moduleAssemblyTextEdit";
+            this.moduleAssemblyTextEdit.Size = new System.Drawing.Size(323, 24);
+            this.moduleAssemblyTextEdit.StyleController = this.dataLayoutControl1;
+            this.moduleAssemblyTextEdit.TabIndex = 9;
             // 
             // moduleGuidTextEdit
             // 
-            this.moduleGuidTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "ModuleGuid", true));
-            this.moduleGuidTextEdit.Location = new System.Drawing.Point(115, 106);
+            this.moduleGuidTextEdit.Location = new System.Drawing.Point(138, 106);
             this.moduleGuidTextEdit.MenuManager = this.barManager1;
             this.moduleGuidTextEdit.Name = "moduleGuidTextEdit";
-            this.moduleGuidTextEdit.Size = new System.Drawing.Size(514, 24);
+            this.moduleGuidTextEdit.Size = new System.Drawing.Size(323, 24);
             this.moduleGuidTextEdit.StyleController = this.dataLayoutControl1;
             this.moduleGuidTextEdit.TabIndex = 11;
             // 
             // moduleNameTextEdit
             // 
-            this.moduleNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "ModuleName", true));
-            this.moduleNameTextEdit.Location = new System.Drawing.Point(115, 136);
+            this.moduleNameTextEdit.Location = new System.Drawing.Point(138, 136);
             this.moduleNameTextEdit.MenuManager = this.barManager1;
             this.moduleNameTextEdit.Name = "moduleNameTextEdit";
-            this.moduleNameTextEdit.Size = new System.Drawing.Size(514, 24);
+            this.moduleNameTextEdit.Size = new System.Drawing.Size(323, 24);
             this.moduleNameTextEdit.StyleController = this.dataLayoutControl1;
             this.moduleNameTextEdit.TabIndex = 13;
             // 
             // moduleTypeTextEdit
             // 
-            this.moduleTypeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.modulesViewModelBindingSource, "ModuleType", true));
-            this.moduleTypeTextEdit.Location = new System.Drawing.Point(115, 166);
+            this.moduleTypeTextEdit.Location = new System.Drawing.Point(138, 166);
             this.moduleTypeTextEdit.MenuManager = this.barManager1;
             this.moduleTypeTextEdit.Name = "moduleTypeTextEdit";
-            this.moduleTypeTextEdit.Size = new System.Drawing.Size(514, 24);
+            this.moduleTypeTextEdit.Size = new System.Drawing.Size(323, 24);
             this.moduleTypeTextEdit.StyleController = this.dataLayoutControl1;
             this.moduleTypeTextEdit.TabIndex = 15;
             // 
@@ -323,62 +322,62 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(645, 228);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(477, 249);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.assemblyTextEdit;
+            this.layoutControlItem2.Control = this.descriptionTextEdit;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(619, 30);
-            this.layoutControlItem2.Text = "Assembly:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem2.Size = new System.Drawing.Size(451, 30);
+            this.layoutControlItem2.Text = "Description:";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(118, 18);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.descriptionTextEdit;
+            this.layoutControlItem4.Control = this.idSpinEdit;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(619, 30);
-            this.layoutControlItem4.Text = "Description:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem4.Size = new System.Drawing.Size(451, 30);
+            this.layoutControlItem4.Text = "Id:";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(118, 18);
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.idSpinEdit;
+            this.layoutControlItem6.Control = this.moduleAssemblyTextEdit;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 60);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(619, 30);
-            this.layoutControlItem6.Text = "Id:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem6.Size = new System.Drawing.Size(451, 30);
+            this.layoutControlItem6.Text = "Module Assembly:";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(118, 18);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.moduleGuidTextEdit;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(619, 30);
+            this.layoutControlItem8.Size = new System.Drawing.Size(451, 30);
             this.layoutControlItem8.Text = "Module Guid:";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(118, 18);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.moduleNameTextEdit;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(619, 30);
+            this.layoutControlItem10.Size = new System.Drawing.Size(451, 30);
             this.layoutControlItem10.Text = "Module Name:";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(118, 18);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.moduleTypeTextEdit;
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 150);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(619, 52);
+            this.layoutControlItem12.Size = new System.Drawing.Size(451, 73);
             this.layoutControlItem12.Text = "Module Type:";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(95, 18);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(118, 18);
             // 
             // frmModules
             // 
@@ -403,10 +402,9 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.assemblyTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.modulesViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moduleAssemblyTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleGuidTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moduleTypeTextEdit.Properties)).EndInit();
@@ -436,11 +434,10 @@
         private DevExpress.XtraGrid.GridControl modulesGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.BindingSource modulesViewModelBindingSource;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraEditors.TextEdit assemblyTextEdit;
         private DevExpress.XtraEditors.TextEdit descriptionTextEdit;
         private DevExpress.XtraEditors.SpinEdit idSpinEdit;
+        private DevExpress.XtraEditors.TextEdit moduleAssemblyTextEdit;
         private DevExpress.XtraEditors.TextEdit moduleGuidTextEdit;
         private DevExpress.XtraEditors.TextEdit moduleNameTextEdit;
         private DevExpress.XtraEditors.TextEdit moduleTypeTextEdit;
@@ -452,5 +449,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

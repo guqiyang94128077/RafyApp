@@ -15,12 +15,20 @@ namespace Rafy.Sys.Modules
         internal ModulesList _CurrModulesList { set; get; }
         internal Rafy.Sys.Domain.Modules _CurrModules { set; get; }
         public BindingSource bs { set; get; }
+        public ModulesViewModel vm;
         public frmModules()
         {
             InitializeComponent();
             if (!DesignMode)
             {
+                _CurrModules = new Domain.Modules();
                 IniEditGridView(this.gridView1);
+                
+                _CurrModules.ModuleName = "lalala1";
+                //this.moduleNameTextEdit.DataBindings.Add("Text", _CurrModules, "ModuleName");
+                this.moduleNameTextEdit.DataBindings.Add("EditValue", _CurrModules, "ModuleName");
+                //this.mvvmContext1.ViewModelType = typeof(Domain.Modules);
+                //mvvmContext1.SetBinding(moduleNameTextEdit, c => c.EditValue, "ModuleName");
             }
         }
 
@@ -113,11 +121,16 @@ namespace Rafy.Sys.Modules
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             //modulesViewModelBindingSource.
-            this.modulesViewModelBindingSource.EndEdit();
-            var v = modulesViewModelBindingSource.DataSource as ModulesViewModel;
-            if (v == null)
-                return;
+            //_CurrModules.
+            //_CurrModules = mvvmContext1.GetViewModel<Domain.Modules>();
             MessageDxUtil.ShowWarning(_CurrModules.ModuleName);
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            //_CurrModules.ModuleName = "lalala";
+            this.moduleNameTextEdit.EditValue = "lalalalalala";
+            this.moduleNameTextEdit.Refresh();
         }
     }
 }

@@ -31,23 +31,24 @@ namespace Rafy.Sys.Modules
                 }
             }
         }
-        private String _Assembly;
+        private String _ModuleAssembly;
         /// <summary>
-        /// Assembly
+        /// ModuleAssembly
         /// </summary>
-        public String Assembly
+        public String ModuleAssembly
         {
-            get { return _Assembly; }
+            get { return _ModuleAssembly; }
             set
             {
-                if (Assembly != value)
+                if (ModuleAssembly != value)
                 {
-                    Assembly = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Assembly"));
+                    ModuleAssembly = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("ModuleAssembly"));
                 }
             }
         }
-        private String _Description;
+    
+    private String _Description;
         /// <summary>
         /// Description
         /// </summary>
@@ -79,22 +80,23 @@ namespace Rafy.Sys.Modules
                 }
             }
         }
-        private String _ModuleName;
-        /// <summary>
-        /// ModuleName
-        /// </summary>
-        public String ModuleName
-        {
-            get { return _ModuleName; }
-            set
-            {
-                if (ModuleName != value)
-                {
-                    ModuleName = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("ModuleName"));
-                }
-            }
-        }
+        public string ModuleName { set; get; }
+        //private String _ModuleName;
+        ///// <summary>
+        ///// ModuleName
+        ///// </summary>
+        //public String ModuleName
+        //{
+        //    get { return _ModuleName; }
+        //    set
+        //    {
+        //        if (ModuleName != value)
+        //        {
+        //            ModuleName = value;
+        //            PropertyChanged(this, new PropertyChangedEventArgs("ModuleName"));
+        //        }
+        //    }
+        //}
         private String _ModuleType;
         /// <summary>
         /// ModuleType
