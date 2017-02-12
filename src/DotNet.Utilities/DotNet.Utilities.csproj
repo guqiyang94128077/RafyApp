@@ -78,6 +78,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="DbUtilities\DbHelper.cs" />
     <Compile Include="DbUtilities\DbHelperFactory.cs" />
