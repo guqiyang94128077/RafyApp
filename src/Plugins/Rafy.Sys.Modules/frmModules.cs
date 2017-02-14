@@ -42,12 +42,11 @@ namespace Rafy.Sys.Modules
             {
                 var repo = RF.ResolveInstance<ModulesRepository>();
                 _CurrModulesList = repo.GetAll();
-                this.modulesListBindingSource.DataSource = _CurrModulesList;
-                //BindUI(_CurrModulesList);
+                BindUI(_CurrModulesList);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -66,10 +65,20 @@ namespace Rafy.Sys.Modules
                 var repo = RF.ResolveInstance<ModulesRepository>();
                 Rafy.Sys.Domain.Modules entity = repo.New();
                 _CurrModulesList.Add(entity);
+                this.modulesListBindingSource.ResetBindings(false);//使绑定到 BindingSource 重新读取当前选定的项，并刷新其显示的值。 
+                
             }
             if (e.Item.Name == "tlDelete")
             {
-                //BindUI(_CurrModulesList);
+                if (this.modulesListBindingSource.Current == null)
+                    return;
+                Rafy.Sys.Domain.Modules entity = this.modulesListBindingSource.Current as Rafy.Sys.Domain.Modules;
+                if (entity == null) { MessageDxUtil.ShowWarning("请重新选择！"); }
+                if (MessageDxUtil.ShowYesNoAndWarning("是否删除?") == DialogResult.Yes)
+                {
+                    _CurrModulesList.Remove(entity);
+                    Save();
+                }
             }
         }
         /// <summary>
@@ -82,14 +91,19 @@ namespace Rafy.Sys.Modules
             var repo = RF.ResolveInstance<ModulesRepository>();
             _CurrModulesList = this.modulesListBindingSource.DataSource as ModulesList;
             _CurrModulesList = repo.Save(_CurrModulesList) as ModulesList;
-            //BindUI(_CurrModulesList);
-        }
-
-        //private void BindUI(ModulesList list)
-        //{
+            MessageDxUtil.ShowTips("保存成功!");
             
-        //    this.modulesListBindingSource.DataSource = list;
-        //}
+            BindUI(_CurrModulesList);
+
+        }
+        /// <summary>
+        /// 将数据绑定到数据源
+        /// </summary>
+        /// <param name="list">要绑定的数据</param>
+        private void BindUI(ModulesList list)
+        {
+            this.modulesListBindingSource.DataSource = list;
+        }
 
         private void frmModules_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {

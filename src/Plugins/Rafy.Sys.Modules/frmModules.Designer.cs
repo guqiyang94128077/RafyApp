@@ -45,6 +45,16 @@
             this.modulesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ModuleName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ModuleAss = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ModuleType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Description = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ModuleGuid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.SharedstyleController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -135,7 +145,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(935, 40);
+            this.barDockControlTop.Size = new System.Drawing.Size(935, 50);
             // 
             // barDockControlBottom
             // 
@@ -148,23 +158,23 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 406);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 50);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 396);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(935, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 406);
+            this.barDockControlRight.Location = new System.Drawing.Point(935, 50);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 396);
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.modulesListGridControl);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 40);
+            this.panelControl1.Location = new System.Drawing.Point(0, 50);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(935, 406);
+            this.panelControl1.Size = new System.Drawing.Size(935, 396);
             this.panelControl1.TabIndex = 10;
             // 
             // modulesListGridControl
@@ -175,7 +185,7 @@
             this.modulesListGridControl.MainView = this.gridView1;
             this.modulesListGridControl.MenuManager = this.barManager1;
             this.modulesListGridControl.Name = "modulesListGridControl";
-            this.modulesListGridControl.Size = new System.Drawing.Size(931, 402);
+            this.modulesListGridControl.Size = new System.Drawing.Size(931, 392);
             this.modulesListGridControl.TabIndex = 0;
             this.modulesListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -187,17 +197,95 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.ModuleName});
+            this.ModuleName,
+            this.ModuleAss,
+            this.ModuleType,
+            this.Description,
+            this.ModuleGuid,
+            this.Id});
             this.gridView1.GridControl = this.modulesListGridControl;
             this.gridView1.Name = "gridView1";
             // 
             // ModuleName
             // 
-            this.ModuleName.Caption = "ModuleName";
+            this.ModuleName.Caption = "窗体名称";
             this.ModuleName.FieldName = "ModuleName";
             this.ModuleName.Name = "ModuleName";
             this.ModuleName.Visible = true;
-            this.ModuleName.VisibleIndex = 0;
+            this.ModuleName.VisibleIndex = 1;
+            // 
+            // ModuleAss
+            // 
+            this.ModuleAss.Caption = "程序集";
+            this.ModuleAss.FieldName = "ModuleAss";
+            this.ModuleAss.Name = "ModuleAss";
+            this.ModuleAss.Visible = true;
+            this.ModuleAss.VisibleIndex = 2;
+            // 
+            // ModuleType
+            // 
+            this.ModuleType.Caption = "窗体插件类";
+            this.ModuleType.FieldName = "ModuleType";
+            this.ModuleType.Name = "ModuleType";
+            this.ModuleType.Visible = true;
+            this.ModuleType.VisibleIndex = 3;
+            // 
+            // Description
+            // 
+            this.Description.Caption = "窗体说明";
+            this.Description.FieldName = "Description";
+            this.Description.Name = "Description";
+            this.Description.Visible = true;
+            this.Description.VisibleIndex = 4;
+            // 
+            // ModuleGuid
+            // 
+            this.ModuleGuid.Caption = "窗体标识";
+            this.ModuleGuid.FieldName = "ModuleGuid";
+            this.ModuleGuid.Name = "ModuleGuid";
+            this.ModuleGuid.Visible = true;
+            this.ModuleGuid.VisibleIndex = 5;
+            // 
+            // Id
+            // 
+            this.Id.Caption = "Id";
+            this.Id.FieldName = "Id";
+            this.Id.Name = "Id";
+            this.Id.OptionsColumn.AllowEdit = false;
+            this.Id.Visible = true;
+            this.Id.VisibleIndex = 0;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "程序集";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "程序集";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
             // 
             // frmModules
             // 
@@ -241,5 +329,15 @@
         private System.Windows.Forms.BindingSource modulesListBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn ModuleName;
+        private DevExpress.XtraGrid.Columns.GridColumn ModuleAss;
+        private DevExpress.XtraGrid.Columns.GridColumn ModuleType;
+        private DevExpress.XtraGrid.Columns.GridColumn Description;
+        private DevExpress.XtraGrid.Columns.GridColumn ModuleGuid;
+        private DevExpress.XtraGrid.Columns.GridColumn Id;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

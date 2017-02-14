@@ -29,8 +29,10 @@ namespace Rafy.Sys.App
             TaskbarAssistantCore.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //启动领域项目
-            new RafyApp().Startup();
+            //连接WCF服务
+            //new RafyApp().Startup();
+            //客户端直连
+            new ClientDomainApp().Startup();
 
             frmLogin fl = new frmLogin();
             fl.ShowDialog();
@@ -48,16 +50,45 @@ namespace Rafy.Sys.App
     }
 
     /// <summary>
-    /// 客户端使用的应用程序类型。
+    /// 通过数据库直连方式启动
     /// </summary>
     public class ClientDomainApp : DomainApp
     {
         protected override void InitEnvironment()
         {
-            RafyEnvironment.Location.DataPortalMode = DataPortalMode.ThroughService;
+            RafyEnvironment.DomainPlugins.Add(new SysDomainPlugin());
+            //添加RBAC插件到 Rafy 应用程序集中。
+            RafyEnvironment.DomainPlugins.Add(new AccountsPlugin());
+            RafyEnvironment.DomainPlugins.Add(new RoleManagementPlugin());
+            RafyEnvironment.DomainPlugins.Add(new GroupManagementPlugin());
+            RafyEnvironment.DomainPlugins.Add(new UserRoleManagementPlugin());
+            RafyEnvironment.DomainPlugins.Add(new DataPermissionManagementPlugin());
             base.InitEnvironment();
         }
+        protected override void OnRuntimeStarting()
+        {
+            base.OnRuntimeStarting();
+            DbSettingNames.RafyPlugins = DbSettingNames.DbMigrationHistory
+                = SysDomainPlugin.DbSettingName;//将所有配置统一在一个数据库中
+            RafyEnvironment.Location.IsWPFUI = true;
+            RafyEnvironment.Location.DataPortalMode = DataPortalMode.ConnectDirectly;
+            //if (ConfigurationHelper.GetAppSettingOrDefault("AutoUpdateDb", false))
+            //{
+            //    var svc = ServiceFactory.Create<MigrateService>();
+            //    svc.Options = new MigratingOptions
+            //    {
+            //        ReserveHistory = true,//ReserveHistory 表示是否需要保存所有数据库升级的历史记录
+            //        RunDataLossOperation = DataLossOperation.All,//要禁止数据库表、字段的删除操作，请使用 DataLossOperation.None 值。
+            //        Databases = new string[] { SysDomainPlugin.DbSettingName }
+            //    };
+            //    svc.Invoke();
+            //}
+        }
     }
+
+    /// <summary>
+    /// 通过WCF服务的方式启动
+    /// </summary>
     class RafyApp : DomainApp
     {
         protected override void InitEnvironment()

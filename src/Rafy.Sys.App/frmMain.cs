@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraBars.Navigation;
+using Rafy.Domain;
+using Rafy.Sys.Domain;
 using Rafy.UI.PlugInCommon;
 using System;
 using System.Reflection;
@@ -59,13 +61,26 @@ namespace Rafy.Sys.App
             elem1.Click += Elem_Click;
             elem.Elements.Add(elem1);
 
-            AccordionControlElement elem2 = new AccordionControlElement();
-            elem2.Text = "模块管理";
-            elem2.Name = "ModulesPlugin";
-            elem2.Style = ElementStyle.Item;
-            elem2.Tag = "Rafy.Sys.Modules.ModulesPlugin,Rafy.Sys.Modules.dll";
-            elem2.Click += Elem_Click;
-            elem.Elements.Add(elem2);
+            var repo = RF.ResolveInstance<ModulesRepository>();
+            ModulesList modulesList = repo.GetAll();
+            for (int i = 0; i < modulesList.Count; i++)
+            {
+                AccordionControlElement elemtemp = new AccordionControlElement();
+                elemtemp.Text = modulesList[0].ModuleName;
+                elemtemp.Name = modulesList[0].ModuleName;
+                elemtemp.Style = ElementStyle.Item;
+                elemtemp.Tag = modulesList[0].ModuleType + "," + modulesList[0].ModuleAss;// "Rafy.Sys.Modules.ModulesPlugin,Rafy.Sys.Modules.dll";
+                elemtemp.Click += Elem_Click;
+                elem.Elements.Add(elemtemp);
+                
+            }
+            //AccordionControlElement elem2 = new AccordionControlElement();
+            //elem2.Text = "模块管理";
+            //elem2.Name = "ModulesPlugin";
+            //elem2.Style = ElementStyle.Item;
+            //elem2.Tag = "Rafy.Sys.Modules.ModulesPlugin,Rafy.Sys.Modules.dll";
+            //elem2.Click += Elem_Click;
+            //elem.Elements.Add(elem2);
         }
 
         private void Elem_Click(object sender, EventArgs e)

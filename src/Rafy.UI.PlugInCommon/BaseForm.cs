@@ -28,7 +28,7 @@ namespace Rafy.UI.PlugInCommon
             dgv.OptionsNavigation.AutoMoveRowFocus = true;
             dgv.OptionsNavigation.EnterMoveNextColumn = true;//回车键跳转到下一列
             dgv.OptionsView.ColumnAutoWidth = true;
-            dgv.OptionsBehavior.AutoPopulateColumns = false;
+            dgv.OptionsBehavior.AutoPopulateColumns = false;//不自动根据数据源生成列
         }
         /// <summary>
         /// 初始化显示表格
@@ -39,6 +39,7 @@ namespace Rafy.UI.PlugInCommon
             dgv.OptionsBehavior.Editable = false;
             dgv.OptionsSelection.MultiSelect = true;
             dgv.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CellSelect;
+            dgv.OptionsBehavior.AutoPopulateColumns = false;//不自动根据数据源生成列
 
 
         }
