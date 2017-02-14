@@ -51,11 +51,11 @@ namespace Rafy.Sys.Domain
             get { return this.GetProperty(ModuleNameProperty); }
             set { this.SetProperty(ModuleNameProperty, value); }
         }
-        public static readonly Property<string> AssemblyProperty = P<Modules>.Register(e => e.Assembly);
+        public static readonly Property<string> AssemblyProperty = P<Modules>.Register(e => e.ModuleAssembly);
         /// <summary>
         /// 模块所属的程序集
         /// </summary>
-        public string Assembly
+        public string ModuleAssembly
         {
             get { return this.GetProperty(AssemblyProperty); }
             set { this.SetProperty(AssemblyProperty, value); }
