@@ -47,6 +47,14 @@ namespace Rafy.Sys.App
             var controller = DomainControllerFactory.Create<AccountController>();
             controller.IdentityMode = UserIdentityMode.Email | UserIdentityMode.UserName;
             _userInfo = null;
+            //var res = controller.Register(new User
+            //{
+            //    UserName = "admin",
+            //    RealName = "admin",
+            //    Password = controller.EncodePassword("admin"),
+            //    Email = "admin@admin.com"
+            //});
+
             var reslogin = controller.LoginByUserName(UserNameTextEdit.Text.Trim(), PwdTextEdit.Text.Trim(), out _userInfo);
             if (reslogin.Success)
             {

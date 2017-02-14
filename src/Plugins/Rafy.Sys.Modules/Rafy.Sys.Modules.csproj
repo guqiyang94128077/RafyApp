@@ -63,9 +63,9 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Rafy, Version=3.57.3302.0, Culture=neutral, PublicKeyToken=f7937325279b37cf, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Rafy.Domain.3.57.3302\lib\net45\Rafy.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Rafy, Version=3.58.3323.0, Culture=neutral, PublicKeyToken=f7937325279b37cf, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rafy.Domain.3.58.3323\lib\net45\Rafy.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -104,6 +104,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Rafy.Sys.Domain.Modules.datasource" />
+    <None Include="Properties\DataSources\Rafy.Sys.Domain.ModulesList.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

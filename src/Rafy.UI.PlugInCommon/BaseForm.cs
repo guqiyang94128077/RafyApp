@@ -28,6 +28,7 @@ namespace Rafy.UI.PlugInCommon
             dgv.OptionsNavigation.AutoMoveRowFocus = true;
             dgv.OptionsNavigation.EnterMoveNextColumn = true;//回车键跳转到下一列
             dgv.OptionsView.ColumnAutoWidth = true;
+            dgv.OptionsBehavior.AutoPopulateColumns = false;
         }
         /// <summary>
         /// 初始化显示表格

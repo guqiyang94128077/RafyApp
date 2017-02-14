@@ -14,7 +14,6 @@ namespace Rafy.Sys.Modules
 
         internal ModulesList _CurrModulesList { set; get; }
         internal Rafy.Sys.Domain.Modules _CurrModules { set; get; }
-        public BindingSource bs { set; get; }
         public frmModules()
         {
             InitializeComponent();
@@ -43,7 +42,8 @@ namespace Rafy.Sys.Modules
             {
                 var repo = RF.ResolveInstance<ModulesRepository>();
                 _CurrModulesList = repo.GetAll();
-                BindUI(_CurrModulesList);
+                this.modulesListBindingSource.DataSource = _CurrModulesList;
+                //BindUI(_CurrModulesList);
             }
             catch (Exception ex)
             {
@@ -69,7 +69,7 @@ namespace Rafy.Sys.Modules
             }
             if (e.Item.Name == "tlDelete")
             {
-                BindUI(_CurrModulesList);
+                //BindUI(_CurrModulesList);
             }
         }
         /// <summary>
@@ -80,19 +80,16 @@ namespace Rafy.Sys.Modules
 
             this.gridView1.PostEditor();
             var repo = RF.ResolveInstance<ModulesRepository>();
-            _CurrModulesList = this.modulesGridControl.DataSource as ModulesList;
+            _CurrModulesList = this.modulesListBindingSource.DataSource as ModulesList;
             _CurrModulesList = repo.Save(_CurrModulesList) as ModulesList;
-            BindUI(_CurrModulesList);
+            //BindUI(_CurrModulesList);
         }
 
-        private void BindUI(ModulesList list)
-        {
-            //bs.DataSource = typeof(Rafy.Sys.Domain.Modules);
-            //bs.DataSource=list.ToDataTable
-            //this.modulesGridControl.DataSource = list;//.ToDataTable();
-            //this.gridView1.RefreshData();
-            this.modulesBindingSource.DataSource = list;
-        }
+        //private void BindUI(ModulesList list)
+        //{
+            
+        //    this.modulesListBindingSource.DataSource = list;
+        //}
 
         private void frmModules_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
