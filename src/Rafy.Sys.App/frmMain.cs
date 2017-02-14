@@ -44,10 +44,10 @@ namespace Rafy.Sys.App
                     this.tslDataPortalMode.Text += "未知";
                     break;
             }
-            
+
             #endregion
             AccordionControlElement elem = new AccordionControlElement();
-            elem.Text= "菜单组";
+            elem.Text = "菜单组";
             elem.Name = "菜单组";
             elem.Style = ElementStyle.Group;
             accordionControl1.Elements.Add(elem);
@@ -75,14 +75,15 @@ namespace Rafy.Sys.App
             {
                 return;
             }
-            string  tag = tooStripMenu.Tag as string ;
-            if (string .IsNullOrWhiteSpace(tag))
+            string tag = tooStripMenu.Tag as string;
+            if (string.IsNullOrWhiteSpace(tag))
                 return;
             //获取插件目录
             string Pluginspath = ConfigurationHelper.GetAppSettingOrDefault("PluginsPath", @"\plugins\");
             //获取插件对象
             IPlugIn plugIn = LoadPlugIn(Pluginspath + tag.Split(',')[1], tag.Split(',')[0]);
-            
+            if (plugIn == null)
+            { MessageDxUtil.ShowError("未找到菜单配置的窗体实例，请检查窗体菜单配置。"); }
             //创建子窗体并显示
             BaseForm plugInForm = plugIn.CreatePlugInForm();
             plugInForm.MdiParent = this;
@@ -111,7 +112,7 @@ namespace Rafy.Sys.App
             foreach (Type type in types)
             {
                 if (type.FullName == fullName && type.GetInterface("IPlugIn") != null)
-                {   
+                {
                     //仅是需要加载的对象才创建插件的实例
                     IPlugIn plugIn = (IPlugIn)Activator.CreateInstance(type);
                     plugIn.AppContext = this;
@@ -120,7 +121,7 @@ namespace Rafy.Sys.App
             }
             return null;
         }
-       
-        
+
+
     }
 }
